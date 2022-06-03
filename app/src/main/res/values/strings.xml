@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MovieApp</string>
+    <string name="movie_name">Movie Name</string>
+    <string name="original_lang">Original Language</string>
+    <string name="article_share_btn_description">share this article</string>
+    <string name="posterContentDescription">Movie Poster Image</string>
+</resources>
