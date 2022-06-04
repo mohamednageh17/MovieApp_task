@@ -18,24 +18,22 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val viewModel: MoviesViewModel by viewModels()
 
-    private val adapter by lazy{ MoviesAdapter(MoviesAdapter.OnItemClickListener {
-
-    }) }
+    private val adapter by lazy { MoviesAdapter(MoviesAdapter.OnItemClickListener {}) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setupRecyclerView()
         observeUI()
     }
 
-    private fun setupRecyclerView(){
-        binding.recyclerView.adapter=adapter
+    private fun setupRecyclerView() {
+        binding.recyclerView.adapter = adapter
     }
 
-    private fun observeUI(){
+    private fun observeUI() {
         viewModel.moviesLiveDate.observe(this) {
             it?.let {
                 when (it.status) {
@@ -60,8 +58,8 @@ class MainActivity : AppCompatActivity() {
         adapter.submitList(it.data)
     }
 
-    private fun handleErrorStatus(it:Throwable?) {
+    private fun handleErrorStatus(it: Throwable?) {
         hideProgress()
-        Toast.makeText(this,it!!.message, Toast.LENGTH_LONG).show()
+        Toast.makeText(this, it!!.message, Toast.LENGTH_LONG).show()
     }
 }

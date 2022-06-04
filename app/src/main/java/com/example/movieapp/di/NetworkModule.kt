@@ -1,4 +1,4 @@
-package com.example.data.di
+package com.example.movieapp.di
 
 import com.example.data.remote.ApiKeyInterceptor
 import com.example.data.remote.MovieApi
